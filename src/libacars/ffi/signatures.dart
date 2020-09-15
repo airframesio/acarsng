@@ -27,8 +27,9 @@ typedef la_adsc_destroy = Void Function(Void data);
 // ### arinc
 // la_proto_node *la_arinc_parse(char const *txt, la_msg_dir const msg_dir);
 // void la_arinc_format_text(la_vstring * const vstr, void const * const data, int indent);
+typedef la_arinc_format_text = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data, int indent);
 // void la_arinc_format_json(la_vstring * const vstr, void const * const data);
-// extern la_type_descriptor const la_DEF_arinc_message;
+typedef la_arinc_format_json = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data);
 // la_proto_node *la_proto_tree_find_arinc(la_proto_node *root);
 
 // ### asn1-format-common
@@ -198,6 +199,6 @@ typedef la_vstring_destroy = Void Function(
 // void la_vstring_append_sprintf(la_vstring * const vstr, char const *fmt, ...) LA_GCC_PRINTF_ATTR(2, 3);
 typedef la_vstring_append_sprintf = Void Function(Pointer<LaVstring> vstr, Pointer<Utf8> fmt, ...);
 // void la_vstring_append_buffer(la_vstring * const vstr, void const * buffer, size_t size);
-typedef la_vstring_append_buffer = Void Function(Pointer<LaVstring> vstr, Pointer<Void> buffer, ...);
+typedef la_vstring_append_buffer = Void Function(Pointer<LaVstring> vstr, Pointer<Void> buffer, ... size);
 // void la_isprintf_multiline_text(la_vstring * const vstr, int const indent, char const *txt);
 typedef la_isprintf_multiline_text = Void Function(Pointer<LaVstring> vstr, int indent, Pointer<Utf8> txt);
