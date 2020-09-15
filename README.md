@@ -15,3 +15,12 @@ An effort to make a native-compiled ACARS decoder client in the Dart language to
 Harness the great work of others:
 * `librtlsdr` for core RTL-SDR support
 * `libacars`/`libacars-2` for ACARS decoding (thanks [Tomasz Lemiech](https://github.com/szpajder))
+
+## Data Links
+
+The following will be supported in the application (in order of implementation).
+
+* ACARS (Analog VHF, the original -- still very active)
+* VDL (Digital VHF, the successor)
+* HFDL (HF, longer distance, slightly more specialized)
+* AERO (SATCOM, focus on oceanic, very specialized)
