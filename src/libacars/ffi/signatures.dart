@@ -8,13 +8,21 @@ import 'types.dart';
 
 // ### acars
 // la_proto_node *la_acars_decode_apps(char const * const label, char const * const txt, la_msg_dir const msg_dir);
+typedef la_acars_decode_apps = Pointer<LaProtoNode> Function(Pointer<Utf8> label, Pointer<Utf8> txt, LaMessageDirection msg_dir);
 // la_proto_node *la_acars_apps_parse_and_reassemble(char const * const reg, char const * const label, char const * const txt, la_msg_dir const msg_dir, la_reasm_ctx *rtables, struct timeval const rx_time);
+typedef la_acars_apps_parse_and_reassemble = Pointer<LaProtoNode> Function(Pointer<Utf8> reg, Pointer<Utf8> label, Pointer<Utf8> txt, LaMessageDirection msg_dir, Pointer<LaReassemblyContext> rtables, Struct rx_time);
 // la_proto_node *la_acars_parse_and_reassemble(uint8_t *buf, int len, la_msg_dir msg_dir, la_reasm_ctx *rtables, struct timeval rx_time);
+typedef la_acars_parse_and_reassemble = Pointer<LaProtoNode> Function(Pointer<Uint8> buf, int len, LaMessageDirection msg_dir, Pointer<LaReassemblyContext> rtables, Struct rx_time);
 // la_proto_node *la_acars_parse(uint8_t *buf, int len, la_msg_dir msg_dir);
+typedef la_acars_parse = Pointer<LaProtoNode> Function(Pointer<Uint8> buf, int len, LaMessageDirection msg_dir);
 // int la_acars_extract_sublabel_and_mfi(char const * const label, la_msg_dir const msg_dir, char const * const txt, int const len, char *sublabel, char *mfi);
+typedef la_acars_extract_sublabel_and_mfi = int Function(Pointer<Utf8> label, LaMessageDirection msg_dir, Pointer<Utf8> txt, int len, Pointer<Utf8> sublabel, Pointer<Utf8> mfi);
 // void la_acars_format_text(la_vstring *vstr, void const * const data, int indent);
+typedef la_acars_format_text = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data, int indent);
 // void la_acars_format_json(la_vstring *vstr, void const * const data);
+typedef la_acars_format_json = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data);
 // la_proto_node *la_proto_tree_find_acars(la_proto_node *root);
+typedef la_proto_tree_find_acars = Pointer<LaProtoNode> Function(Pointer<LaProtoNode> root);
 
 // ### adsc
 // la_proto_node *la_adsc_parse(uint8_t *buf, int len, la_msg_dir msg_dir, la_arinc_imi imi);

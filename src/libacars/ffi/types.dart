@@ -120,6 +120,8 @@ class LaMiamXonIndMessage extends Struct {}
 
 // ### reassembly
 
+class LaReassemblyContext extends Struct {}
+
 class LaReassemblyTableFunctions extends Struct {}
 
 class LaReassemblyFragmentInfo extends Struct {}
