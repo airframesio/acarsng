@@ -26,11 +26,15 @@ typedef la_proto_tree_find_acars = Pointer<LaProtoNode> Function(Pointer<LaProto
 
 // ### adsc
 // la_proto_node *la_adsc_parse(uint8_t *buf, int len, la_msg_dir msg_dir, la_arinc_imi imi);
+typedef la_adsc_parse = Pointer<LaProtoNode> Function(Pointer<Uint8> buf, int len, LaMessageDirection msg_dir, int imi);
 // void la_adsc_format_text(la_vstring * const vstr, void const * const data, int indent);
+typedef la_adsc_format_text = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data, int indent);
 // void la_adsc_format_json(la_vstring * const vstr, void const * const data);
+typedef la_adsc_format_json = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data);
 // void la_adsc_destroy(void *data);
 typedef la_adsc_destroy = Void Function(Void data);
 // la_proto_node *la_proto_tree_find_adsc(la_proto_node *root);
+typedef la_proto_tree_find_adsc = Pointer<LaProtoNode> Function(Pointer<LaProtoNode> root);
 
 // ### arinc
 // la_proto_node *la_arinc_parse(char const *txt, la_msg_dir const msg_dir);

@@ -54,6 +54,16 @@ class LaAdscAircraftIntentGroupRequest extends Struct {}
 
 // ### arinc
 
+enum LaArincImi {
+  ARINC_MSG_UNKNOWN,
+  ARINC_MSG_CR1,
+  ARINC_MSG_CC1,
+  ARINC_MSG_DR1,
+  ARINC_MSG_AT1,
+  ARINC_MSG_ADS,
+  ARINC_MSG_DIS
+}
+
 class LaArincMessage extends Struct {}
 
 // ### asn1-util
