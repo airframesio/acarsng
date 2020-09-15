@@ -28,6 +28,23 @@ import 'package:ffi/ffi.dart';
 // extern la_type_descriptor const la_DEF_arinc_message;
 // la_proto_node *la_proto_tree_find_arinc(la_proto_node *root);
 
+// ### asn1-format-common
+// char const *la_value2enum(asn_TYPE_descriptor_t *td, long const value);
+// void la_format_INTEGER_with_unit_as_text(la_vstring *vstr, char const * const label, asn_TYPE_descriptor_t *td, void const *sptr, int indent, char const * const unit, double multiplier, int decimal_places);
+// void la_format_CHOICE_as_text(la_vstring *vstr, char const * const label, la_dict const * const choice_labels, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+// void la_format_SEQUENCE_as_text(la_vstring *vstr, char const * const label, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+// void la_format_SEQUENCE_OF_as_text(la_vstring *vstr, char const * const label, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+// void la_format_INTEGER_with_unit_as_json(la_vstring *vstr, char const * const label, asn_TYPE_descriptor_t *td, void const *sptr, int indent, char const * const unit, double multiplier, int decimal_places);
+// void la_format_CHOICE_as_json(la_vstring *vstr, char const * const label, la_dict const * const choice_labels, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+// void la_format_SEQUENCE_as_json(la_vstring *vstr, char const * const label, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+// void la_format_SEQUENCE_OF_as_json(la_vstring *vstr, char const * const label, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+
+// ### asn1-format-cpdlc
+// void la_asn1_output_cpdlc_as_text(la_vstring *vstr, asn_TYPE_descriptor_t *td, const void *sptr, int indent);
+// extern la_dict const FANSATCUplinkMsgElementId_labels[];
+// extern la_dict const FANSATCDownlinkMsgElementId_labels[];
+// void la_asn1_output_cpdlc_as_json(la_vstring *vstr, asn_TYPE_descriptor_t *td, const void *sptr, int indent);
+
 // ### asn1-util
 // int la_asn1_decode_as(asn_TYPE_descriptor_t *td, void **struct_ptr, uint8_t *buf, int size);
 // void la_asn1_output(la_vstring *vstr, la_asn_formatter const * const asn1_formatter_table, size_t asn1_formatter_table_len, asn_TYPE_descriptor_t *td, const void *sptr, int indent, bool const dump_unknown_types);
@@ -37,7 +54,45 @@ import 'package:ffi/ffi.dart';
 // ### bitstream
 // la_bitstream_t *la_bitstream_init(uint32_t len);
 // void la_bitstream_destroy(la_bitstream_t *bs);
-//
+
+// ### cpdlc
+// la_proto_node *la_cpdlc_parse(uint8_t *buf, int len, la_msg_dir const msg_dir);
+// void la_cpdlc_format_text(la_vstring * const vstr, void const * const data, int indent);
+// void la_cpdlc_format_json(la_vstring * const vstr, void const * const data);
+// void la_cpdlc_destroy(void *data);
+// la_proto_node *la_proto_tree_find_cpdlc(la_proto_node *root);
+
+// ### crc
+// uint16_t la_crc16_arinc(uint8_t const *data, uint32_t len, uint16_t const crc_init);
+// uint16_t la_crc16_ccitt(uint8_t const *data, uint32_t len, uint16_t const crc_init);
+// uint32_t la_crc32_arinc665(uint8_t const *data, uint32_t len, uint32_t const crc_init);
+
+// ### hash
+// la_hash *la_hash_new(la_hash_func *compute_hash, la_hash_compare_func *compare_keys, la_hash_key_destroy_func *destroy_key, la_hash_value_destroy_func *destroy_value);
+// bool la_hash_insert(la_hash *h, void *key, void *value);
+// bool la_hash_remove(la_hash *h, void *key);
+// void *la_hash_lookup(la_hash const *h, void const *key);
+// uint32_t la_hash_key_str(void const *k);
+// uint32_t la_hash_string(char const *str, uint32_t h);
+// bool la_hash_compare_keys_str(void const *key1, void const *key2);
+// void la_simple_free(void *data);
+// int la_hash_foreach_remove(la_hash *h, la_hash_if_func *if_func, void *if_func_ctx);
+// void la_hash_destroy(la_hash *h);
+
+// ### json
+// void la_json_object_start(la_vstring * const vstr, char const * const key);
+// void la_json_object_end(la_vstring * const vstr);
+// void la_json_array_start(la_vstring * const vstr, char const * const key);
+// void la_json_array_end(la_vstring * const vstr);
+// void la_json_append_bool(la_vstring * const vstr, char const * const key, bool const val);
+// void la_json_append_double(la_vstring * const vstr, char const * const key, double const val);
+// void la_json_append_long(la_vstring * const vstr, char const * const key, long const val);
+// void la_json_append_char(la_vstring * const vstr, char const * const key, char const  val);
+// void la_json_append_string(la_vstring * const vstr, char const * const key, char const * const val);
+// void la_json_append_octet_string(la_vstring * const vstr, char const * const key, uint8_t const * const buf, size_t len);
+// void la_json_start(la_vstring * const vstr);
+// void la_json_end(la_vstring * const vstr);
+
 // ### libacars
 // la_proto_node *la_proto_node_new();
 // la_vstring *la_proto_tree_format_text(la_vstring *vstr, la_proto_node const * const root);
@@ -55,6 +110,15 @@ import 'package:ffi/ffi.dart';
 // bool la_config_get_double(char const *name, double *result);
 // bool la_config_get_str(char const *name, char **result);
 // bool la_config_unset(char *name);
+
+// ### list
+// la_list *la_list_next(la_list const * const l);
+// la_list *la_list_append(la_list *l, void *data);
+// size_t la_list_length(la_list const *l);
+// void la_list_foreach(la_list *l, void (*cb)(), void *ctx);
+// void la_list_free(la_list *l);
+// void la_list_free_full(la_list *l, void (*node_free)());
+// void la_list_free_full_with_ctx(la_list *l, void (*node_free)(), void *ctx);
 
 // ### miam-core
 // la_proto_node *la_miam_core_pdu_parse(char const *txt);
