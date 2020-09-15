@@ -24,3 +24,12 @@ The following will be supported in the application (in order of implementation).
 * VDL (Digital VHF, the successor)
 * HFDL (HF, longer distance, slightly more specialized)
 * AERO (SATCOM, focus on oceanic, very specialized)
+
+## SDRs Supported
+
+Initial effort will only focus on RTL-SDR since it is the most common and cheapest SDR available on the market. In the future
+will consider the following:
+
+* Airspy
+* SDRPlay
+* SOAPYSDR (for multi-sdr support)
