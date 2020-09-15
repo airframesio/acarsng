@@ -120,20 +120,45 @@ import 'package:ffi/ffi.dart';
 // void la_list_free_full(la_list *l, void (*node_free)());
 // void la_list_free_full_with_ctx(la_list *l, void (*node_free)(), void *ctx);
 
+// ### media-adv (media advisory)
+// la_proto_node *la_media_adv_parse(char const *txt);
+// void la_media_adv_format_text(la_vstring * const vstr, void const * const data, int indent);
+// void la_media_adv_format_json(la_vstring * const vstr, void const * const data);
+
 // ### miam-core
 // la_proto_node *la_miam_core_pdu_parse(char const *txt);
 // void la_miam_core_format_text(la_vstring * const vstr, void const * const data, int indent);
 // void la_miam_core_format_json(la_vstring * const vstr, void const * const data);
 // la_proto_node *la_proto_tree_find_miam_core(la_proto_node *root);
 
-// ### media-adv (media advisory)
-// la_proto_node *la_media_adv_parse(char const *txt);
-// void la_media_adv_format_text(la_vstring * const vstr, void const * const data, int indent);
-// void la_media_adv_format_json(la_vstring * const vstr, void const * const data);
-//
-
 // ### miam
 // la_proto_node *la_miam_parse(char const *txt);
 // la_proto_node *la_miam_parse_and_reassemble(char const *reg, char const *txt, la_reasm_ctx *rtables, struct timeval const rx_time);
 // void la_miam_format_text(la_vstring * const vstr, void const * const data, int indent);
 // void la_miam_format_json(la_vstring * const vstr, void const * const data);
+
+// ### reassembly
+// la_reasm_ctx *la_reasm_ctx_new();
+// void la_reasm_ctx_destroy(void *ctx);
+// la_reasm_table *la_reasm_table_new(la_reasm_ctx *rctx, void const *table_id, la_reasm_table_funcs funcs, int const cleanup_interval);
+// la_reasm_table *la_reasm_table_lookup(la_reasm_ctx *rctx, void const *table_id);
+// la_reasm_status la_reasm_fragment_add(la_reasm_table *rtable, la_reasm_fragment_info const *finfo);
+// int la_reasm_payload_get(la_reasm_table *rtable, void const *msg_info, uint8_t **result);
+// char const *la_reasm_status_name_get(la_reasm_status const status);
+
+// ### util
+// void *la_dict_search(const la_dict *list, int id);
+// size_t la_slurp_hexstring(char *string, uint8_t **buf);
+// char *la_hexdump(uint8_t *data, size_t len);
+// int la_strntouint16_t(char const *txt, int const charcnt);
+// size_t chomped_strlen(char const *s);
+// char *la_simple_strptime(char const *s, struct tm *t);
+// la_octet_string *la_octet_string_new(void *buf, size_t len);
+// void la_octet_string_destroy(void *ostring_ptr);
+
+// ### vstring
+// la_vstring *la_vstring_new();
+// void la_vstring_destroy(la_vstring *vstr, bool destroy_buffer);
+// void la_vstring_append_sprintf(la_vstring * const vstr, char const *fmt, ...) LA_GCC_PRINTF_ATTR(2, 3);
+// void la_vstring_append_buffer(la_vstring * const vstr, void const * buffer, size_t size);
+// void la_isprintf_multiline_text(la_vstring * const vstr, int const indent, char const *txt);
