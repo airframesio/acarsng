@@ -19,6 +19,7 @@ import 'package:ffi/ffi.dart';
 // void la_adsc_format_text(la_vstring * const vstr, void const * const data, int indent);
 // void la_adsc_format_json(la_vstring * const vstr, void const * const data);
 // void la_adsc_destroy(void *data);
+typedef la_adsc_destroy = Void Function(Void data);
 // la_proto_node *la_proto_tree_find_adsc(la_proto_node *root);
 
 // ### arinc
@@ -30,6 +31,7 @@ import 'package:ffi/ffi.dart';
 
 // ### asn1-format-common
 // char const *la_value2enum(asn_TYPE_descriptor_t *td, long const value);
+typedef la_value2enum = Pointer<Utf8> Function();
 // void la_format_INTEGER_with_unit_as_text(la_vstring *vstr, char const * const label, asn_TYPE_descriptor_t *td, void const *sptr, int indent, char const * const unit, double multiplier, int decimal_places);
 // void la_format_CHOICE_as_text(la_vstring *vstr, char const * const label, la_dict const * const choice_labels, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
 // void la_format_SEQUENCE_as_text(la_vstring *vstr, char const * const label, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
@@ -60,12 +62,19 @@ import 'package:ffi/ffi.dart';
 // void la_cpdlc_format_text(la_vstring * const vstr, void const * const data, int indent);
 // void la_cpdlc_format_json(la_vstring * const vstr, void const * const data);
 // void la_cpdlc_destroy(void *data);
+typedef la_cpdlc_destroy = Void Function(Void data);
 // la_proto_node *la_proto_tree_find_cpdlc(la_proto_node *root);
 
 // ### crc
 // uint16_t la_crc16_arinc(uint8_t const *data, uint32_t len, uint16_t const crc_init);
+typedef la_crc16_arinc = Uint16 Function(
+    Pointer<Uint8> data, Uint32 len, Uint16 crc_init);
 // uint16_t la_crc16_ccitt(uint8_t const *data, uint32_t len, uint16_t const crc_init);
+typedef la_crc16_ccitt = Uint16 Function(
+    Pointer<Uint8> data, Uint32 len, Uint16 crc_init);
 // uint32_t la_crc32_arinc665(uint8_t const *data, uint32_t len, uint32_t const crc_init);
+typedef la_crc16_arinc665 = Uint16 Function(
+    Pointer<Uint8> data, Uint32 len, Uint32 crc_init);
 
 // ### hash
 // la_hash *la_hash_new(la_hash_func *compute_hash, la_hash_compare_func *compare_keys, la_hash_key_destroy_func *destroy_key, la_hash_value_destroy_func *destroy_value);
