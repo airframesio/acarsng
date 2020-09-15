@@ -38,11 +38,13 @@ typedef la_proto_tree_find_adsc = Pointer<LaProtoNode> Function(Pointer<LaProtoN
 
 // ### arinc
 // la_proto_node *la_arinc_parse(char const *txt, la_msg_dir const msg_dir);
+typedef la_arinc_parse = Pointer<LaProtoNode> Function(Pointer<Utf8> txt, LaMessageDirection msg_dir);
 // void la_arinc_format_text(la_vstring * const vstr, void const * const data, int indent);
 typedef la_arinc_format_text = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data, int indent);
 // void la_arinc_format_json(la_vstring * const vstr, void const * const data);
 typedef la_arinc_format_json = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data);
 // la_proto_node *la_proto_tree_find_arinc(la_proto_node *root);
+typedef la_proto_tree_find_arinc = Pointer<LaProtoNode> Function(Pointer<LaProtoNode> root);
 
 // ### asn1-format-common
 // char const *la_value2enum(asn_TYPE_descriptor_t *td, long const value);
