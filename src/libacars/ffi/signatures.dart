@@ -199,23 +199,37 @@ typedef la_config_unset = bool Function(Pointer<Utf8> name);
 
 // ### list
 // la_list *la_list_next(la_list const * const l);
+typedef la_list_next = Pointer<LaList> Function(Pointer<LaList> l);
 // la_list *la_list_append(la_list *l, void *data);
+typedef la_list_append = Pointer<LaList> Function(Pointer<LaList> l, Pointer<Void> data);
 // size_t la_list_length(la_list const *l);
+typedef la_list_length = int Function(Pointer<LaList> l);
 // void la_list_foreach(la_list *l, void (*cb)(), void *ctx);
+typedef la_list_foreach = Void Function(Pointer<LaList> l, Pointer<Void> cb, Pointer<Void> ctx); // TODO: Need to figure out how to hook the callback function here properly
 // void la_list_free(la_list *l);
+typedef la_list_free = Void Function(Pointer<LaList> l);
 // void la_list_free_full(la_list *l, void (*node_free)());
+typedef la_list_free_full = Void Function(Pointer<LaList> l, Pointer<Void> node_free); // TODO: Need to figure out how to hoook the function properly
 // void la_list_free_full_with_ctx(la_list *l, void (*node_free)(), void *ctx);
+typedef la_list_free_full_with_ctx = Void Function(Pointer<LaList> l, Pointer<Void> node_free, Pointer<Void> ctx); // TODO: Need to figure out how to hook the function properly
 
 // ### media-adv (media advisory)
 // la_proto_node *la_media_adv_parse(char const *txt);
+typedef la_media_adv_parse = Pointer<LaProtoNode> Function(Pointer<Utf8> txt);
 // void la_media_adv_format_text(la_vstring * const vstr, void const * const data, int indent);
+typedef la_media_adv_format_text = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data, int indent);
 // void la_media_adv_format_json(la_vstring * const vstr, void const * const data);
+typedef la_media_adv_format_json = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data);
 
 // ### miam-core
 // la_proto_node *la_miam_core_pdu_parse(char const *txt);
+typedef la_miam_core_pdu_parse = Pointer<LaProtoNode> Function(Pointer<Utf8> txt);
 // void la_miam_core_format_text(la_vstring * const vstr, void const * const data, int indent);
+typedef la_miam_core_format_text = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data, int indent);
 // void la_miam_core_format_json(la_vstring * const vstr, void const * const data);
+typedef la_miam_core_format_json = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data);
 // la_proto_node *la_proto_tree_find_miam_core(la_proto_node *root);
+typedef la_proto_tree_find_miam_core = Pointer<LaProtoNode> Function(Pointer<LaProtoNode> root);
 
 // ### miam
 // la_proto_node *la_miam_parse(char const *txt);
