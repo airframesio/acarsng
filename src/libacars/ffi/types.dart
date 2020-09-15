@@ -70,6 +70,8 @@ class LaCpdlcMessage extends Struct {}
 
 // ### libacars
 
+class LaMessageDirection extends Struct {}
+
 class LaTypeDescriptor extends Struct {}
 
 class LaProtoNode extends Struct {}
