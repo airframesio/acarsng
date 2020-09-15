@@ -66,6 +66,14 @@ enum LaArincImi {
 
 class LaArincMessage extends Struct {}
 
+// ### asn1
+
+class AsnTypeDescriptor extends Struct {}
+
+class AsnTypeMember extends Struct {}
+
+class AsnTypeTagToMember extends Struct {}
+
 // ### asn1-util
 
 class LaAsnFormatter extends Struct {}

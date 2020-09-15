@@ -50,13 +50,21 @@ typedef la_proto_tree_find_arinc = Pointer<LaProtoNode> Function(Pointer<LaProto
 // char const *la_value2enum(asn_TYPE_descriptor_t *td, long const value);
 typedef la_value2enum = Pointer<Utf8> Function();
 // void la_format_INTEGER_with_unit_as_text(la_vstring *vstr, char const * const label, asn_TYPE_descriptor_t *td, void const *sptr, int indent, char const * const unit, double multiplier, int decimal_places);
+typedef la_format_INTEGER_with_unit_as_text = Void Function(Pointer<LaVstring> vstr, Pointer<Utf8> label, Pointer<AsnTypeDescriptor> td, Pointer<Void> sptr, Pointer<Utf8> unit, double multipler, int decimal_places);
 // void la_format_CHOICE_as_text(la_vstring *vstr, char const * const label, la_dict const * const choice_labels, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+typedef la_format_CHOICE_as_text = Void Function(Pointer<LaVstring> vstr, Pointer<Utf8> label, Pointer<LaDict> choice_labels, ..., Pointer<AsnTypeDescriptor> td, Pointer<Void> sptr, int indent);
 // void la_format_SEQUENCE_as_text(la_vstring *vstr, char const * const label, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+typedef la_format_SEQUENCE_as_text = Void Function(Pointer<LaVstring> vstr, Pointer<Utf8> label, ..., Pointer<AsnTypeDescriptor> td, Pointer<Void> sptr, int indent);
 // void la_format_SEQUENCE_OF_as_text(la_vstring *vstr, char const * const label, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+typedef la_format_SEQUENCE_OF_as_text = Void Function(Pointer<LaVstring> vstr, Pointer<Utf8> label, ..., Pointer<AsnTypeDescriptor> td, Pointer<Void> sptr, int indent);
 // void la_format_INTEGER_with_unit_as_json(la_vstring *vstr, char const * const label, asn_TYPE_descriptor_t *td, void const *sptr, int indent, char const * const unit, double multiplier, int decimal_places);
+typedef la_format_INTEGER_with_unit_as_json = Void Function(Pointer<LaVstring> vstr, Pointer<Utf8> label, ..., Pointer<AsnTypeDescriptor> td, Pointer<Void> sptr, int indent, Pointer<Utf8> unit, double multiplier, int decimal_places);
 // void la_format_CHOICE_as_json(la_vstring *vstr, char const * const label, la_dict const * const choice_labels, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+typedef la_format_CHOICE_as_json = Void Function(Pointer<LaVstring> vstr, Pointer<Utf8> label, Pointer<LaDict> choice_labels, ..., Pointer<AsnTypeDescriptor> td, Pointer<Void> sptr, int indent);
 // void la_format_SEQUENCE_as_json(la_vstring *vstr, char const * const label, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+typedef la_format_SEQUENCE_as_json = Void Function(Pointer<LaVstring> vstr, Pointer<Utf8> label, ..., Pointer<AsnTypeDescriptor> td, Pointer<Void> sptr, int indent);
 // void la_format_SEQUENCE_OF_as_json(la_vstring *vstr, char const * const label, asn1_output_fun_t cb, asn_TYPE_descriptor_t *td, void const *sptr, int indent);
+typedef la_format_SEQUENCE_OF_as_json = Void Function(Pointer<LaVstring> vstr, Pointer<Utf8> label, ..., Pointer<AsnTypeDescriptor> td, Pointer<Void> sptr, int indent);
 
 // ### asn1-format-cpdlc
 // void la_asn1_output_cpdlc_as_text(la_vstring *vstr, asn_TYPE_descriptor_t *td, const void *sptr, int indent);
