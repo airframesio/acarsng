@@ -62,7 +62,7 @@ typedef la_value2enum = Pointer<Utf8> Function();
 // void la_cpdlc_format_text(la_vstring * const vstr, void const * const data, int indent);
 // void la_cpdlc_format_json(la_vstring * const vstr, void const * const data);
 // void la_cpdlc_destroy(void *data);
-typedef la_cpdlc_destroy = Void Function(Void data);
+typedef la_cpdlc_destroy = Void Function(Pointer<Void> data);
 // la_proto_node *la_proto_tree_find_cpdlc(la_proto_node *root);
 
 // ### crc
@@ -82,9 +82,14 @@ typedef la_crc16_arinc665 = Uint16 Function(
 // bool la_hash_remove(la_hash *h, void *key);
 // void *la_hash_lookup(la_hash const *h, void const *key);
 // uint32_t la_hash_key_str(void const *k);
+typedef la_hash_key_str = Void Function(Pointer<Void> k);
 // uint32_t la_hash_string(char const *str, uint32_t h);
+typedef la_hash_string = Uint32 Function(Pointer<Utf8> str, Uint32 h);
 // bool la_hash_compare_keys_str(void const *key1, void const *key2);
+typedef la_hash_compare_keys_str = bool Function(
+    Pointer<Void> key1, Pointer<Void> key2);
 // void la_simple_free(void *data);
+typedef la_simple_free = Void Function(Pointer<Void> data);
 // int la_hash_foreach_remove(la_hash *h, la_hash_if_func *if_func, void *if_func_ctx);
 // void la_hash_destroy(la_hash *h);
 
@@ -109,16 +114,30 @@ typedef la_crc16_arinc665 = Uint16 Function(
 // void la_proto_tree_destroy(la_proto_node *root);
 // la_proto_node *la_proto_tree_find_protocol(la_proto_node *root, la_type_descriptor const * const td);
 // void la_config_init();
+typedef la_config_init = Void Function();
 // void la_config_destroy();
+typedef la_config_destroy = Void Function();
 // bool la_config_set_bool(char const *name, bool const value);
+typedef la_config_set_bool = bool Function(Pointer<Utf8> name, bool value);
 // bool la_config_set_int(char const *name, long int const value);
+typedef la_config_set_int = bool Function(Pointer<Utf8> name, int value);
 // bool la_config_set_double(char const *name, double const value);
+typedef la_config_set_double = bool Function(Pointer<Utf8> name, double value);
 // bool la_config_set_str(char const *name, char const *value);
+typedef la_config_set_str = bool Function(
+    Pointer<Utf8> name, Pointer<Utf8> value);
 // bool la_config_get_bool(char const *name, bool *result);
+typedef la_config_get_bool = bool Function(Pointer<Utf8> name, bool result);
 // bool la_config_get_int(char const *name, long int *result);
+typedef la_config_get_int = bool Function(Pointer<Utf8> name, int result);
 // bool la_config_get_double(char const *name, double *result);
+typedef la_config_get_double = bool Function(
+    Pointer<Utf8> name, Pointer<Double> result);
 // bool la_config_get_str(char const *name, char **result);
+typedef la_config_get_str = bool Function(
+    Pointer<Utf8> name, Pointer<Utf8> result);
 // bool la_config_unset(char *name);
+typedef la_config_unset = bool Function(Pointer<Utf8> name);
 
 // ### list
 // la_list *la_list_next(la_list const * const l);
