@@ -4,6 +4,8 @@ import 'dart:ffi';
 
 import 'package:ffi/ffi.dart';
 
+import 'types.dart';
+
 // ### acars
 // la_proto_node *la_acars_decode_apps(char const * const label, char const * const txt, la_msg_dir const msg_dir);
 // la_proto_node *la_acars_apps_parse_and_reassemble(char const * const reg, char const * const label, char const * const txt, la_msg_dir const msg_dir, la_reasm_ctx *rtables, struct timeval const rx_time);
@@ -189,7 +191,13 @@ typedef la_octet_string_destroy = Void Function(Pointer<Void> ostring_ptr);
 
 // ### vstring
 // la_vstring *la_vstring_new();
+typedef la_vstring_new = Pointer<LaVstring> Function();
 // void la_vstring_destroy(la_vstring *vstr, bool destroy_buffer);
+typedef la_vstring_destroy = Void Function(
+    Pointer<LaVstring> vstr, bool destroy_buffer);
 // void la_vstring_append_sprintf(la_vstring * const vstr, char const *fmt, ...) LA_GCC_PRINTF_ATTR(2, 3);
+typedef la_vstring_append_sprintf = Void Function(Pointer<LaVstring> vstr, Pointer<Utf8> fmt, ...);
 // void la_vstring_append_buffer(la_vstring * const vstr, void const * buffer, size_t size);
+typedef la_vstring_append_buffer = Void Function(Pointer<LaVstring> vstr, Pointer<Void> buffer, ...);
 // void la_isprintf_multiline_text(la_vstring * const vstr, int const indent, char const *txt);
+typedef la_isprintf_multiline_text = Void Function(Pointer<LaVstring> vstr, int indent, Pointer<Utf8> txt);
