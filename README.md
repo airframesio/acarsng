@@ -33,3 +33,7 @@ will consider the following:
 * Airspy
 * SDRPlay
 * SOAPYSDR (for multi-sdr support)
+
+## License
+
+The MIT License, see [LICENSE](https://raw.githubusercontent.com/renggli/dart-rtlsdr/master/LICENSE).
