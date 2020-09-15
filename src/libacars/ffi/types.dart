@@ -2,7 +2,11 @@ library acars.ffi.types;
 
 import 'dart:ffi';
 
+// ### acars
+
 class LaAcarsMessage extends Struct {}
+
+// ### adsc
 
 class LaAdscFormatterContext extends Struct {}
 
@@ -47,5 +51,85 @@ class LaAdscVerticalSpeedChangeEvent extends Struct {}
 class LaAdscAltitudeRangeChangeEvent extends Struct {}
 
 class LaAdscAircraftIntentGroupRequest extends Struct {}
+
+// ### arinc
+
+class LaArincMessage extends Struct {}
+
+// ### asn1-util
+
+class LaAsnFormatter extends Struct {}
+
+// ### bitstream
+
+class LaBitstream extends Struct {}
+
+// ### cpdlc
+
+class LaCpdlcMessage extends Struct {}
+
+// ### libacars
+
+class LaTypeDescriptor extends Struct {}
+
+class LaProtoNode extends Struct {}
+
+// ### list
+
+class LaList extends Struct {}
+
+// ### media-adv
+
+class LaMediaAdvisoryMessage extends Struct {}
+
+// ### miam-core
+
+class LaMiamCoreV1DataPdu extends Struct {}
+
+class LaMiamCoreV1AckPdu extends Struct {}
+
+class LaMiamCoreV2DataPdu extends Struct {}
+
+class LaMiamCoreV2AckPdu extends Struct {}
+
+class LaMiamCoreV1V2AloAlrPdu extends Struct {}
+
+class LaMiamCorePduType extends Struct {}
+
+class LaMiamCorePdu extends Struct {}
+
+// ### miam
+
+class LaMiamFrameId extends Struct {}
+
+class LaMiamMessage extends Struct {}
+
+class LaMiamFileTransferRequestMessage extends Struct {}
+
+class LaMiamFileTransferAcceptMessage extends Struct {}
+
+class LaMiamFileSegmentMessage extends Struct {}
+
+class LaMiamFileTransferAbortMessage extends Struct {}
+
+class LaMiamXoffIndMessage extends Struct {}
+
+class LaMiamXonIndMessage extends Struct {}
+
+// ### reassembly
+
+class LaReassemblyTableFunctions extends Struct {}
+
+class LaReassemblyFragmentInfo extends Struct {}
+
+class LaReassemblyStatus extends Struct {}
+
+// ### util
+
+class LaDict extends Struct {}
+
+class LaOctetString extends Struct {}
+
+// ### vstring
 
 class LaVstring extends Struct {}
