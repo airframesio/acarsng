@@ -233,29 +233,45 @@ typedef la_proto_tree_find_miam_core = Pointer<LaProtoNode> Function(Pointer<LaP
 
 // ### miam
 // la_proto_node *la_miam_parse(char const *txt);
+typedef la_miam_parse = Pointer<LaProtoNode> Function(Pointer<Utf8> txt);
 // la_proto_node *la_miam_parse_and_reassemble(char const *reg, char const *txt, la_reasm_ctx *rtables, struct timeval const rx_time);
+typedef la_miam_parse_and_reassemble = Pointer<LaProtoNode> Function(Pointer<Utf8> reg, Pointer<Utf8> txt, Pointer<LaReassemblyContext> rtables, Struct rx_time); // TODO: Need to figure out how to do timeval struct
 // void la_miam_format_text(la_vstring * const vstr, void const * const data, int indent);
+typedef la_miam_format_text = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data, int indent);
 // void la_miam_format_json(la_vstring * const vstr, void const * const data);
+typedef la_miam_format_json = Void Function(Pointer<LaVstring> vstr, Pointer<Void> data);
 
 // ### reassembly
 // la_reasm_ctx *la_reasm_ctx_new();
+typedef la_reasm_ctx_new = Pointer<LaReassemblyContext> Function();
 // void la_reasm_ctx_destroy(void *ctx);
+typedef la_reasm_ctx_destroy = Void Function(Pointer<Void> ctx);
 // la_reasm_table *la_reasm_table_new(la_reasm_ctx *rctx, void const *table_id, la_reasm_table_funcs funcs, int const cleanup_interval);
+typedef la_reasm_table_new = Pointer<LaReassemblyTable> Function(Pointer<LaReassemblyContext> rctx, Pointer<Void> table_id, LaReassemblyTableFunctions funcs, int cleanup_interval);
 // la_reasm_table *la_reasm_table_lookup(la_reasm_ctx *rctx, void const *table_id);
+typedef la_reasm_table_lookup = Pointer<LaReassemblyTable> Function(Pointer<LaReassemblyContext> rctx, Pointer<Void> table_id);
 // la_reasm_status la_reasm_fragment_add(la_reasm_table *rtable, la_reasm_fragment_info const *finfo);
+typedef la_reasm_fragment_add = LaReassemblyStatus Function(Pointer<LaReassemblyTable> rtable, Pointer<LaReassemblyFragmentInfo> finfo);
 // int la_reasm_payload_get(la_reasm_table *rtable, void const *msg_info, uint8_t **result);
+typedef la_reasm_payload_get = int Function(Pointer<LaReassemblyTable> rtable, Pointer<Void> msg_info, Pointer<Uint8> result);
 // char const *la_reasm_status_name_get(la_reasm_status const status);
+typedef la_reasm_status_name_get = Pointer<Utf8> Function(LaReassemblyStatus status);
 
 // ### util
 // void *la_dict_search(const la_dict *list, int id);
+typedef la_dict_search = Void Function(Pointer<LaDict> list, int id);
 // size_t la_slurp_hexstring(char *string, uint8_t **buf);
+typedef la_slurp_hexstring = int Function(Pointer<Utf8> string, Pointer<Uint8> buf);
 // char *la_hexdump(uint8_t *data, size_t len);
+typedef la_hexdump = Pointer<Utf8> Function(Pointer<Uint8> data, int len);
 // int la_strntouint16_t(char const *txt, int const charcnt);
 typedef la_strntouint16_t = int Function(Pointer<Utf8> txt, int charcnt);
 // size_t chomped_strlen(char const *s);
+typedef chomped_strlen = int Function(Pointer<Utf8> s);
 // char *la_simple_strptime(char const *s, struct tm *t);
-// typedef la_simple_strptime = Pointer<Utf8> Function(Pointer<Utf8> s, ...);
+typedef la_simple_strptime = Pointer<Utf8> Function(Pointer<Utf8> s, Struct t);
 // la_octet_string *la_octet_string_new(void *buf, size_t len);
+typedef la_octet_string_new = Pointer<LaOctetString> Function(Pointer<Void>, int len);
 // void la_octet_string_destroy(void *ostring_ptr);
 typedef la_octet_string_destroy = Void Function(Pointer<Void> ostring_ptr);
 
