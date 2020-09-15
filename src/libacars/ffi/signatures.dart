@@ -179,10 +179,13 @@ typedef la_config_unset = bool Function(Pointer<Utf8> name);
 // size_t la_slurp_hexstring(char *string, uint8_t **buf);
 // char *la_hexdump(uint8_t *data, size_t len);
 // int la_strntouint16_t(char const *txt, int const charcnt);
+typedef la_strntouint16_t = int Function(Pointer<Utf8> txt, int charcnt);
 // size_t chomped_strlen(char const *s);
 // char *la_simple_strptime(char const *s, struct tm *t);
+// typedef la_simple_strptime = Pointer<Utf8> Function(Pointer<Utf8> s, ...);
 // la_octet_string *la_octet_string_new(void *buf, size_t len);
 // void la_octet_string_destroy(void *ostring_ptr);
+typedef la_octet_string_destroy = Void Function(Pointer<Void> ostring_ptr);
 
 // ### vstring
 // la_vstring *la_vstring_new();
